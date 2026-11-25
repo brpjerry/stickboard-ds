@@ -52,17 +52,25 @@ moves it up or down; the position is remembered.
 under the app, touches in that gap go to the app; on the other screen they're ignored, because
 Android blocks touches that pass through another app's overlay.
 
+## Install
+
+Signed APKs are on the [Releases](https://github.com/brpjerry/stickboard-ds/releases) page.
+Install one, open StickBoard and follow its setup steps.
+
 ## Build
 
-Uses the system Gradle (`pacman -S gradle`) and the Android SDK in `~/Android/Sdk`:
+Needs JDK 17 or newer and the Android SDK (set `sdk.dir` in `local.properties` or `ANDROID_HOME`):
 
 ```sh
-gradle :app:assembleDebug
+./gradlew :app:assembleDebug
 adb install -r app/build/outputs/apk/debug/app-debug.apk
 adb shell ime enable dev.stickboard/.StickBoardIme
 adb shell ime set dev.stickboard/.StickBoardIme
 adb shell appops set dev.stickboard SYSTEM_ALERT_WINDOW allow   # dual-screen only
 ```
+
+CI builds every pull request and push to `main`; pushing a version tag publishes a signed
+release. See [docs/releasing.md](docs/releasing.md).
 
 ## How the dual-screen part works
 
