@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/scroll"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/app_name"
+            android:textAppearance="?android:attr/textAppearanceLarge" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:text="A split keyboard you type on with the joysticks, like the Steam Deck's. Each stick moves a cursor on its half; the matching trigger types the key under it. Touch works too." />
+
+        <!-- Setup -->
+        <TextView style="@style/SectionHeader" android:text="Setup" />
+
+        <LinearLayout style="@style/SetupRow">
+            <TextView android:id="@+id/status_enabled" style="@style/SetupStatus" />
+            <Button android:id="@+id/btn_enable" style="@style/SetupButton" android:text="Enable" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/SetupRow">
+            <TextView android:id="@+id/status_selected" style="@style/SetupStatus" />
+            <Button android:id="@+id/btn_select" style="@style/SetupButton" android:text="Switch" />
+        </LinearLayout>
+
+        <LinearLayout style="@style/SetupRow">
+            <TextView android:id="@+id/status_overlay" style="@style/SetupStatus" />
+            <Button android:id="@+id/btn_overlay" style="@style/SetupButton" android:text="Allow" />
+        </LinearLayout>
+
+        <!-- Cursor -->
+        <TextView style="@style/SectionHeader" android:text="Joystick cursor" />
+
+        <RadioGroup
+            android:id="@+id/cursor_mode"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <RadioButton
+                android:id="@+id/mode_relative"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Relative: the stick steers the cursor" />
+
+            <RadioButton
+                android:id="@+id/mode_trackpad"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Trackpad: each stick position maps straight to a spot on its half, like a finger on the Steam Deck's trackpads. Let go and the cursor returns to the middle." />
+
+            <RadioButton
+                android:id="@+id/mode_console"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Console: each push moves the selection one key, in 8 directions. Hold to keep moving." />
+        </RadioGroup>
+
+        <Switch
+            android:id="@+id/swap_shoulders"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:minHeight="48dp"
+            android:text="Swap shoulders and triggers (L1 / R1 type, L2 is shift, R2 is symbols)" />
+
+        <TextView android:id="@+id/speed_label" style="@style/SliderLabel" />
+        <SeekBar android:id="@+id/speed" style="@style/Slider" android:max="34" />
+
+        <TextView android:id="@+id/console_delay_label" style="@style/SliderLabel" />
+        <SeekBar android:id="@+id/console_delay" style="@style/Slider" android:max="28" />
+
+        <TextView android:id="@+id/console_rate_label" style="@style/SliderLabel" />
+        <SeekBar android:id="@+id/console_rate" style="@style/Slider" android:max="22" />
+
+        <!-- Screens -->
+        <TextView style="@style/SectionHeader" android:text="Screens" />
+
+        <TextView style="@style/SliderLabel" android:text="Show the keyboard on" />
+        <Spinner
+            android:id="@+id/screen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp" />
+
+        <TextView android:id="@+id/secondary_height_label" style="@style/SliderLabel" />
+        <SeekBar android:id="@+id/secondary_height" style="@style/Slider" android:max="70" />
+
+        <TextView android:id="@+id/keyboard_width_label" style="@style/SliderLabel" />
+        <SeekBar android:id="@+id/keyboard_width" style="@style/Slider" android:max="60" />
+
+        <TextView android:id="@+id/inline_height_label" style="@style/SliderLabel" />
+        <SeekBar android:id="@+id/inline_height" style="@style/Slider" android:max="45" />
+
+        <Switch
+            android:id="@+id/show_preview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minHeight="48dp"
+            android:text="Show the typed text above the keyboard when it's on the other screen" />
+
+        <Switch
+            android:id="@+id/number_row"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="Number row above the letters (digits are always on the symbols layer)" />
+
+        <Switch
+            android:id="@+id/transparent_middle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="48dp"
+            android:text="See-through middle (hides the button guide between the halves)" />
+
+        <Switch
+            android:id="@+id/haptics"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:minHeight="48dp"
+            android:text="Vibrate on key press" />
+
+        <!-- Try it -->
+        <TextView style="@style/SectionHeader" android:text="Try it" />
+
+        <EditText
+            android:id="@+id/try_single"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Single line (Enter = Done)"
+            android:imeOptions="actionDone"
+            android:inputType="textCapSentences" />
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="top"
+            android:hint="Multi-line"
+            android:inputType="textMultiLine|textCapSentences"
+            android:minLines="3" />
+
+        <TextView style="@style/SectionHeader" android:text="Controls" />
+
+        <TextView
+            android:id="@+id/controls"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="monospace"
+            android:text="Left stick    cursor on the left half\nRight stick   cursor on the right half\nL2 / R2       type the key under that cursor\nL3 / R3       same as L2 / R2\nA             type under the last-moved cursor\nX             backspace\nY             space\nL1            shift (twice quickly: caps lock)\nR1            symbols / letters\nStart         enter\nD-pad         move the text caret\nB             hide the keyboard\nSelect        move the keyboard between screens\n              (one screen: switch keyboard)" />
+    </LinearLayout>
+</ScrollView>

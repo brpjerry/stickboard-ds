@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Two keyboard halves, each with a stick cursor. -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp" android:height="108dp"
+    android:viewportWidth="108" android:viewportHeight="108">
+    <path android:fillColor="#FF3A3E47"
+        android:pathData="M28,40h22a4,4 0,0 1,4 4v20a4,4 0,0 1,-4 4h-22a4,4 0,0 1,-4 -4v-20a4,4 0,0 1,4 -4z" />
+    <path android:fillColor="#FF3A3E47"
+        android:pathData="M60,40h22a4,4 0,0 1,4 4v20a4,4 0,0 1,-4 4h-22a4,4 0,0 1,-4 -4v-20a4,4 0,0 1,4 -4z" />
+    <path android:fillColor="#FF3FD0FF"
+        android:pathData="M39,54m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0" />
+    <path android:fillColor="#FFFFB03F"
+        android:pathData="M71,54m-6,0a6,6 0,1 1,12 0a6,6 0,1 1,-12 0" />
+</vector>
